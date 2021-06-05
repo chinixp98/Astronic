@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Creador de blog | Astronic
+{% endblock %}
+
+{% block body %}
+<form action="/create" method="POST" enctype="multipart/form-data">
+	<h1>Creador de Blog</h1>
+	<h5>Rellena todos los espacios</h5>
+	<div class="form">
+<!--------------- Titulo ----------------------->
+		<div class="form_grupo" id="grupo_titulo">
+			<label>Introduce el titulo de tu blog</label>
+				<input for="titulo" type="text" id="titulo" name="titulo" placeholder="Titulo" class="form_input">
+			</div>
+		</div>
+
+<!--------------- Imagen ----------------------->
+		<div class="form_grupo" id="grupo_imagen">
+			<label>Introduce una imagen</label>
+			<input type="file" name="archivo">
+		</div>
+
+<!--------------- Contenido -------------------->
+		<div class="form_grupo" id="grupo_contenido">
+			<label>Introduce el contenido</label>
+			<textarea for="contenido" type="text" id="contenido" name="contenido" class="form_input"></textarea>
+		</div>
+<!--------- Extra  ----------------->
+     	<div class="form_grupo_btn_enviar">
+      		<button class="btn btn-primary" href="/blog" type="submit">Enviar blog</button>
+    	</div>
+	</div>
+
+{% endblock %}

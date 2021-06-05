@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Editar Perfil | Astronic
+{% endblock %}
+
+{% block body %}
+<form action="/profile2" method="POST" enctype="multipart/form-data">
+	<h1>¡Bienvenido!</h1>
+	<div class="form">
+<!--------------- Foto de perfil ----------------------->
+		<div class="form_grupo" id="grupo_imagen">
+			<label>Introduce una foto de perfil</label>
+			<input type="file" name="archivo">
+		</div>
+
+<!--------- Extra  ----------------->
+     	<div class="form_grupo_btn_enviar">
+      		<button class="btn btn-primary" href="/profile" type="submit">Editar perfil</button>
+    	</div>
+	</div>
+{% endblock %}

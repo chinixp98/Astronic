@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Creador de blog | Astronic
+{% endblock %}
+
+{% block body %}
+<form action="/comentario" method="POST" id="form">
+	<div class="form">
+<!--------------- Titulo ----------------------->
+		<div class="form_grupo" id="grupo_comentario">
+			<label>Escribe tu comentario</label>
+			<textarea for="comentario" type="text" id="comentario" name="comentario" class="form_input"></textarea>
+		</div>
+
+		<input id = "pi" name = "pi" type = "hidden" value = {{pi}}>
+
+<!--------- Extra  ----------------->
+    	<div class="form_grupo_btn_enviar">
+      		<button class="btn btn-primary" href="/blog" type="submit">Agregar comentario</button>
+    	</div>
+	</div>
+{% endblock %}

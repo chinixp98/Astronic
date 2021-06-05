@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Blog | Astronic
+{% endblock %}
+
+{% block body %}
+<form2 action="/blog" method="post" enctype="multipart/form-data">
+    <div class="blog">
+        <h1>Blog</h1>
+        {% for post in posts %}
+
+            <h3 class="titulo">{{ post["title"] }}</h3>
+
+            <img class="imagen" src="{{url_for('static', filename='post/' + post["imageurl"])}}" alt="">
+
+
+            <h5 class="contenido"> {{ post["content"] }} </h5>
+
+            {% for user in usuario %}
+                {% if post["user_id"] == user["user_id"] %}
+                    <h6>- Elaborado por {{ user["username"] }}</h6>
+                {% endif %}
+            {% endfor %}
+
+            {% for comentario in comentarios %}
+                {% if comentario["post_id"] == post["post_id"] %}
+                    <p> {{ comentario["comment"] }} </p>
+                     {% for user in usuario %}
+                        {% if comentario["user_id"] == user["user_id"] %}
+                            <h7>- Comentario elaborado por {{ user["username"] }}</h7>
+                        {% endif %}
+                     {% endfor %}
+                {% endif %}
+            {% endfor %}
+
+            <a href="/comentario?pi={{post["post_id"]}}">Agregar comentario</a>
+        {% endfor %}
+    </div>
+{% endblock %}

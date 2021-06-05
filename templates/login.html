@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Astronic
+{% endblock %}
+
+{% block body %}
+<form action="/login" method="post" id="form">
+  <h1>¡Bienvenido!</h1>
+  <h5>Inicia sesión para continuar</h5>
+  <div class="form">
+
+<!--------- Usuario ----------------->
+    <div class="form_grupo" id="grupo_usuario">
+      <input for="username" type="text" id="username" name="username" placeholder="Usuario" class="form_input"/>
+    </div>
+
+<!--------- Contraseña ----------------->
+    <div class="form_grupo" id="grupo_password">
+      <input for="password" type="password"  id="password" name="password" placeholder="Contraseña" class="form_input"/>
+    </div>
+
+<!--------- Extra  ----------------->
+    <div class="form_grupo_btn_enviar">
+      <button class="btn btn-primary" href="/home" type="submit">Iniciar sesión</button>
+    </div>
+
+      <p>¿Aún no tienes una cuenta? <a href="/register"> Registrate aquí</a></p>
+
+{% endblock %}

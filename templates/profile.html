@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% for nombre in nombreusuario %}
+    {{ nombre["username"]}} | Perfil
+{% endfor %}
+{% endblock %}
+
+{% block body %}
+<form2 action="/profile" method="post" enctype="multipart/form-data">
+    <div class="perfil">
+        {% for imagen in fotoperfil %}
+        <img class="img-responsive"src="{{url_for('static', filename='profile/' + imagen["foto"])}}" alt="">
+        {% endfor %}
+
+        {% for nombre in nombreusuario %}
+        <h1 class="usuario"> {{ nombre["username"] }} </h1>
+        {% endfor %}
+    </div>
+    <div class="about">
+        <h1>Mi bibliografía</h1>
+        {% for about in about %}
+        <h2> "{{ about["about"] }}"</h2>
+        {% endfor %}
+    </div>
+    <div class="edit">
+        <a href="/profile1">Editar información de perfil</a>
+    </div>
+    <div class="edit">
+        <a href="/create">Crear un blog</a>
+    </div>
+</form2>
+
+
+{% endblock %}
